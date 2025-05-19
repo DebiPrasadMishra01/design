@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tailwind Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    
+
+
+    .card-hover img {
+      transition: transform 0.3s ease;
+    }
+
+    .card-hover:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-hover .overlay {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .card-hover:hover .overlay {
+      opacity: 1;
+    }
+
+    
+
+    /* Add this to your CSS file */
+::-webkit-scrollbar {
+  width: 6px; /* Vertical scrollbar */
+  height: 6px; /* Horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0418f6; /* Scroll thumb color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Scrollbar track */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(52, 51, 51, 0.7); /* Slightly darker overlay */
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1; /* Smooth fade-in effect */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 90%; /* Wider container */
+  max-height: 90%; /* Limit height */
+  overflow: hidden; /* Hide excess image overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* Ensure image doesn't overflow vertically */
+  object-fit: contain; /* Maintain aspect ratio of the image */
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  color: #111;
+  border: none;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #f44336;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.close-btn:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+h2 {
+  color:rgb(255, 205, 5); /* amber-400 color */
+}
+
+
+  </style>
+  
+</head>
+<body class="bg-[#FFFFFF] text-black font-sans pt-[1px]">
+  <div id="navbar"></div>
+
+  <script>
+    fetch('nav.html')
+      .then(res => res.text())
+      .then(data => {
+        const navbar = document.getElementById('navbar');
+        navbar.innerHTML = data;
+
+        // Evaluate and execute any scripts inside the fetched HTML
+        const scripts = navbar.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+  </script>
+</body>
+
+
+ 
+
+  <!-- Section Title -->
+  <div class="mt-[60px]"></div>
+  
+  <h2 id="residence" class="text-center text-[2.5rem] font-bold uppercase tracking-wide mb-8" >
+    Residence
+  </h2>
+  
+
+
+
+<!-- Residence Gallery -->
+<div class="flex flex-wrap justify-center gap-2">
+  <!-- Card 1 -->
+   
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Residence" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Residence Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern housing design</p>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Residence" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Residence Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern housing design</p>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Residence" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Residence Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern housing design</p>
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="mt-[30px]"></div>
+
+  <h2 id="apartment" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Apartment
+</h2>
+  <!-- Apartment Gallery -->
+  <div class="flex flex-wrap justify-center gap-5">
+    <!-- Card 1 -->
+    <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+      <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Apartment" class="w-full h-full object-cover" />
+      <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+        <h3 class="text-xl md:text-2xl font-bold mb-2">Apartment Project</h3>
+        <p class="text-sm md:text-base tracking-wide">Modern apartment design</p>
+      </div>
+    </div>
+  
+    <!-- Card 2 -->
+    <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+      <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Apartment" class="w-full h-full object-cover" />
+      <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+        <h3 class="text-xl md:text-2xl font-bold mb-2">Apartment Project</h3>
+        <p class="text-sm md:text-base tracking-wide">Luxury apartment living</p>
+      </div>
+    </div>
+  
+    <!-- Card 3 -->
+    <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+      <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Apartment" class="w-full h-full object-cover" />
+      <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+        <h3 class="text-xl md:text-2xl font-bold mb-2">Apartment Project</h3>
+        <p class="text-sm md:text-base tracking-wide">Contemporary apartment design</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-[30px]"></div>
+
+<h2 id="duplex" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Duplex
+</h2>
+<!-- Duplex Gallery -->
+<div class="flex flex-wrap justify-center gap-5">
+  <!-- Card 1 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Duplex" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Duplex Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern duplex design</p>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Duplex" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Duplex Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Luxury duplex living</p>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/5c/bc/9d/5cbc9d9a65aa0e53c927a448c78366df.jpg" alt="Duplex" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Duplex Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Contemporary duplex design</p>
+    </div>
+  </div>
+
+</div>
+
+  <div class="mt-[30px]"></div>
+
+<h2 id="villa" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Villa
+</h2>
+<!-- Villa Gallery -->
+<div class="flex flex-wrap justify-center gap-5">
+  <!-- Card 1 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Villa Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Luxurious private villa</p>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+      <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Villa Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern villa living</p>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Villa Project</h3>
+      <p class="text-sm md:text-base tracking-wide">Elegant villa retreat</p>
+    </div>
+  </div>
+
+  
+</div>
+
+  <div class="mt-[30px]"></div>
+
+<h2 id="office" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Office
+</h2>
+<!-- Office Gallery -->
+<div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center gap-5">
+  <div class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Office Space</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern work environment</p>
+    </div>
+  </div>
+
+  <!-- Repeat or update with different descriptions if needed -->
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Office Space</h3>
+      <p class="text-sm md:text-base tracking-wide">Productive design setup</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Office Space</h3>
+      <p class="text-sm md:text-base tracking-wide">Productive design setup</p>
+    </div>
+  </div>
+
+
+  <!-- Add more office cards as needed... -->
+</div>
+
+  <div class="mt-[30px]"></div>
+
+<h2 id="educational" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Educational
+</h2>
+<!-- Educational Gallery -->
+<div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center gap-5">
+  <div class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Educational Building</h3>
+      <p class="text-sm md:text-base tracking-wide">Campus & institutions</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Learning Hub</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern academic design</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Learning Hub</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern academic design</p>
+    </div>
+  </div>
+
+</div>
+  <div class="mt-[30px]"></div>
+
+<h2 id="medical" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Medical
+</h2>
+<!-- Medical Gallery -->
+<div class="flex flex-wrap justify-center gap-5">
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Medical Facility</h3>
+      <p class="text-sm md:text-base tracking-wide">Hospitals & clinics</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Healthcare Center</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern medical services</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Healthcare Center</h3>
+      <p class="text-sm md:text-base tracking-wide">Modern medical services</p>
+    </div>
+  </div>
+</div>
+
+  <div class="mt-[30px]"></div>
+
+<h2 id="commercial" class="text-center text-[2.5rem] font-kymer font-bold uppercase tracking-wide mb-8" >
+  Commercial
+</h2>
+<!-- Commercial Gallery -->
+<div class="flex flex-wrap justify-center gap-5">
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Commercial Space</h3>
+      <p class="text-sm md:text-base tracking-wide">Retail & business zone</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-lg shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Commercial Space</h3>
+      <p class="text-sm md:text-base tracking-wide">High-traffic location</p>
+    </div>
+  </div>
+
+  <div data-aos="fade-up" data-aos-delay="200" class="relative w-[370px] h-[400px] rounded-2xl shadow-lg overflow-hidden cursor-pointer card-hover">
+    <img src="https://i.pinimg.com/736x/b3/fb/8e/b3fb8e64e9b07b4c9ee36e61b64a03c7.jpg" alt="Commercial" class="w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center">
+      <h3 class="text-xl md:text-2xl font-bold mb-2">Commercial Space</h3>
+      <p class="text-sm md:text-base tracking-wide">High-traffic location</p>
+    </div>
+  </div>
+
+  <!-- Add more commercial cards as needed... -->
+
+<!-- Up Arrow Button -->
+<button onclick="smoothScrollToTop()" 
+class="fixed bottom-16 right-1 w-9 h-9 bg-yellow-400 hover:bg-yellow-500 text-black text-xl font-bold flex items-center justify-center rounded-full shadow-lg transition duration-300 z-50">
+▲
+</button>
+
+
+<!-- JavaScript with custom speed -->
+<script>
+function smoothScrollToTop(speed = 500) {
+const scrollStep = -window.scrollY / (speed / 10);
+const scrollInterval = setInterval(() => {
+if (window.scrollY !== 0) {
+window.scrollBy(0, scrollStep);
+} else {
+clearInterval(scrollInterval);
+}
+}, 10); // 10ms interval
+}
+</script>
+
+  
+  <!-- Modal Structure -->
+<div id="myModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modalImage" src="" alt="Modal Image" />
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center hidden z-50">
+  <span class="absolute top-0 right-0 p-4 text-white cursor-pointer" onclick="closeModal()">X</span>
+  <img id="modalImage" src="" alt="Full screen" class="max-w-full max-h-full" />
+</div>
+
+<script>
+  // Function to open the modal and show the image
+  function openModal(imgElement) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    modal.style.display = "flex";
+    modalImg.src = imgElement.src;
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+  }
+</script>
+
+
+   <!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+  
+</div>
+
+<div id="sideButtons" class="fixed top-1/2 right-[-1.8%] -translate-y-1/2 flex flex-col items-center z-10 space-y-2 transition-opacity duration-300 md:block hidden">
+  <a href="#residence" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    RESIDENCE
+  </a>
+  <a href="#apartment" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    APARTMENT
+  </a>
+  <a href="#duplex" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    DUPLEX
+  </a>
+  <a href="#villa" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    VILLA
+  </a>
+  <a href="#office" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    OFFICE
+  </a>
+  <a href="#educational" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    EDUCATIONAL
+  </a>
+  <a href="#medical" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    MEDICAL
+  </a>
+  <a href="#commercial" class="bg-black text-white w-[200px] h-10 text-[20px] font-bold flex items-center justify-start px-2 pl-6 rounded-tl-[30px] rounded-br-lg hover:bg-neutral-900 hover:text-amber-400 transition-colors">
+    COMMERCIAL
+  </a> 
+</div>
+
+<!-- Horizontally Scrollable Section Buttons for Mobile with Black Background and Yellow Text -->
+<div class="fixed bottom-0 left-0 w-full md:hidden bg-white shadow-inner z-50 border-t border-gray-200 overflow-x-auto whitespace-nowrap px-2 py-2">
+  <div class="flex space-x-2 text-xs font-semibold w-max">
+    <a href="#residence" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">RESIDENCE</a>
+    <a href="#apartment" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">APARTMENT</a>
+    <a href="#duplex" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">DUPLEX</a>
+    <a href="#villa" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">VILLA</a>
+    <a href="#office" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">OFFICE</a>
+    <a href="#educational" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">EDUCATIONAL</a>
+    <a href="#medical" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">MEDICAL</a>
+    <a href="#commercial" class="bg-black text-yellow-500 px-3 py-2 rounded-md hover:bg-gray-700 hover:text-white active:bg-gray-700 active:text-white transition duration-200">COMMERCIAL</a>
+  </div>
+</div>
+
+
+    
+  
+  <!-- Extra Space for Scroll -->
+  <div class="h-[150px]"></div>
+
+  <!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  
+</script>
+
+
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
+<script>
+  // Ensure the DOM is ready before running JS
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('myModal');
+    const closeBtn = document.querySelector('.close-btn');
+  
+    const galleryItems = document.querySelectorAll('.card-hover');
+  
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const imgSrc = this.querySelector('img').src;
+        const title = this.querySelector('h3').innerText;
+        const description = this.querySelector('p').innerText;
+  
+        // Set modal content dynamically
+        document.getElementById('modalImage').src = imgSrc;
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDescription').innerText = description;
+  
+        // Show the modal
+        modal.style.display = 'flex';
+      });
+    });
+  
+    // Close the modal when the close button is clicked
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  
+    // Close the modal when clicking outside of the modal content
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+  
+  </script>
+  
+</body>
+</html>
